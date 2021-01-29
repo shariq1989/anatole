@@ -259,7 +259,7 @@ a:active {
     width: 40%;
     -webkit-background-size: cover;
     background-size: cover;
-    background-color: var(--bg-color);
+    background-color: #dbe8d7;
     height: 100%;
     top: 0;
     left: 0;
@@ -273,12 +273,13 @@ a:active {
 
 .sidebar .logo-title {
     text-align: center;
-    padding-top: 240px;
+    padding-top: 120px;
     flex: 1;
 }
 
 .sidebar .logo-title .description {
     font-size: 14px;
+    padding: 0px 90px 0px 90px;
 }
 
 .sidebar .logo-title .logo {
@@ -286,7 +287,7 @@ a:active {
 }
 
 .sidebar .logo-title .title img {
-    width: 127px;
+    width: 190px;
     border-radius: 50%;
 }
 
