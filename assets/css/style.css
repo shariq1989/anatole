@@ -429,10 +429,13 @@ a:active {
     margin: 1em;
 }
 
+.info span {
+    margin-right: 0.5em;
+}
+
 .post .post-footer .meta a {
     text-decoration: none;
     color: var(--body-color);
-    padding-right: 10px;
 }
 
 .post .post-footer .meta a:hover {
@@ -600,11 +603,16 @@ a:active {
 
 .list-with-title .listing .listing-post .post-time {
     float: right;
+    display: inline-block;
+    max-width: 10%;
+    text-align: right;
     color: #C5C5C5;
 }
 
 .list-with-title .listing .listing-post a {
     color: #8F8F8F;
+    width: 90%;
+    display: inline-block;
 }
 
 .list-with-title .listing .listing-post a:hover {
@@ -958,6 +966,14 @@ print {
 
     .theme-switch-item {
         float: none;
+    }
+
+    .list-with-title .listing .listing-post .post-time {
+        max-width: 20%;
+    }
+    
+    .list-with-title .listing .listing-post a {
+        width: 80%;
     }
 }
 
