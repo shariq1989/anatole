@@ -574,6 +574,7 @@ a:active {
 /*for archive*/
 .archive {
     width: 100%;
+    background-color:#fff; 
 }
 
 .list-with-title {
