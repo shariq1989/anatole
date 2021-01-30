@@ -41,7 +41,7 @@ html {
 
 body {
     color: var(--body-color);
-    font-family: 'Verdana', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 15px;
     width: 100%;
     margin: 0 auto 30px auto;
