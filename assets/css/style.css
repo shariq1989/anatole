@@ -892,6 +892,7 @@ print {
         width: 100%;
         z-index: 2;
         position: absolute;
+        background-color:#fff;
     }
 
     .footer {
