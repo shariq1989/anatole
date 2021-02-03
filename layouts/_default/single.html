@@ -6,6 +6,7 @@
             {{ end }}
             <div class="post-title">
                 <h3>{{ .Title }}</h3>
+                {{ partial "share-buttons.html" . }}
                 {{ if eq .Type "post"}}
                     <div class="info">
                         <em class="fas fa-calendar-day"></em>
