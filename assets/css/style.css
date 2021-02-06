@@ -48,11 +48,11 @@ body {
     background-color: var(--bg-color);
 }
 
-p {
+/*p {
     line-height: 1.9em;
     font-weight: 400;
     font-size: 14px;
-}
+}*/
 
 a {
     text-decoration: none;
