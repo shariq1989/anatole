@@ -367,7 +367,6 @@ a:active {
 
 .post .post-title a {
     text-decoration: none;
-    letter-spacing: 1px;
     color: var(--heading-color);
 }
 
