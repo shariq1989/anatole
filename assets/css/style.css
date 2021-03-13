@@ -409,11 +409,12 @@ a:active {
 }
 
 .instructionFigure img {
-    width:400px;
-    height:300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 70%;
+    padding-bottom: 1em;
+    box-shadow: black;
+    border-radius: 0.5em;
+    overflow: hidden;
+    transition: box-shadow .3s ease;
 }
 
 
