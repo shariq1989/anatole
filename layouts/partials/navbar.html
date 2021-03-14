@@ -6,6 +6,7 @@
     </a>
     <ul class="nav" id="navMenu">
         {{ $url := .RelPermalink }}
+    <!--
         {{ range .Site.Menus.main }}
             {{ $active := eq $url .URL }}
             <li><a {{if $active }}class="current"{{end}}
@@ -16,19 +17,39 @@
                         {{ end }}
                    title="{{ .Title }}">{{ .Name }}</a></li>
         {{ end }}
-        {{ if .Site.IsMultiLingual }}
-            {{ range $.Site.Home.AllTranslations }}
-                <li><a href="{{ .Permalink }}"
-                       title="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
-                </li>
-            {{ end }}
-        {{ end }}
-        {{ if not .Site.Params.disableThemeSwitcher }}
-            <li class="theme-switch-item">
-                <a class="theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </li>
-        {{ end }}
+    -->
+    {{ $active := eq "/" .URL }}
+    <li class="dropdown"><a {{if $active }}class="current"{{end}}
+        href="/">Home</a>
+    </li>
+    {{ $active := eq "/recipe/" .URL }}
+    <li id="parent_element"><a {{if $active }}class="current"{{end}}
+        href="/recipe/">Recipes</a>
+        <div id="child_element" class="dropdown-content">
+            <a href="/recipe/">All Recipes</a>
+            <a href="/tags/instantpot/">Instant Pot</a>
+            <a href="/tags/keto/">Keto</a>
+            <a href="/tags/vegan/">Vegan</a>
+            <a href="/tags/vegetarian/">Vegetarian</a>
+      </div>
+    </li>
+    {{ $active := eq "/about/" .URL }}
+    <li><a {{if $active }}class="current"{{end}}
+        href="/about/">About</a>
+  </li>
+  {{ if .Site.IsMultiLingual }}
+  {{ range $.Site.Home.AllTranslations }}
+  <li><a href="{{ .Permalink }}"
+     title="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
+ </li>
+ {{ end }}
+ {{ end }}
+ {{ if not .Site.Params.disableThemeSwitcher }}
+ <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+    </li>
+    {{ end }}
     </ul>
 </div>
