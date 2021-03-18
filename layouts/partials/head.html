@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     {{- hugo.Generator -}}
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     {{- if .Site.Params.googleSiteVerify }}
     <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerify }}">
     {{- end -}}
@@ -13,24 +13,24 @@
     <!-- CSS -->
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet"
-          href="{{ $style.Permalink }}"
-          integrity="{{ $style.Data.Integrity }}"
-          crossorigin="anonymous"
-          type="text/css">
+    href="{{ $style.Permalink }}"
+    integrity="{{ $style.Data.Integrity }}"
+    crossorigin="anonymous"
+    type="text/css">
     {{ $markupHighlightStyle := resources.Get "css/markupHighlight.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet"
-        href="{{ $markupHighlightStyle.Permalink }}"
-        integrity="{{ $markupHighlightStyle.Data.Integrity }}"
-        crossorigin="anonymous"
-        type="text/css">
+    href="{{ $markupHighlightStyle.Permalink }}"
+    integrity="{{ $markupHighlightStyle.Data.Integrity }}"
+    crossorigin="anonymous"
+    type="text/css">
     {{ range .Site.Params.customCss }}
-        {{ $minstyles := resources.Get . }}
-        {{ $styles := $minstyles | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet"
-        href="{{ $styles.Permalink }}"
-        integrity="{{ $styles.Data.Integrity }}"
-        crossorigin="anonymous"
-        media="screen" />
+    {{ $minstyles := resources.Get . }}
+    {{ $styles := $minstyles | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet"
+    href="{{ $styles.Permalink }}"
+    integrity="{{ $styles.Data.Integrity }}"
+    crossorigin="anonymous"
+    media="screen" />
     {{ end }}
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
@@ -47,49 +47,49 @@
 
     <!-- RSS -->
     {{ with .OutputFormats.Get "rss" -}}
-        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
 
     <!-- JavaScript -->
     {{ $anatoleHeader := resources.Get "js/anatole-header.js" }}
     {{ $secureHeaderJS := $anatoleHeader |  resources.Minify | resources.Fingerprint }}
     <script type="text/javascript"
-            src="{{ $secureHeaderJS.Permalink }}"
-            integrity="{{ $secureHeaderJS.Data.Integrity }}"
-            crossorigin="anonymous"></script>
+    src="{{ $secureHeaderJS.Permalink }}"
+    integrity="{{ $secureHeaderJS.Data.Integrity }}"
+    crossorigin="anonymous"></script>
 
 
     {{ if not .Site.Params.disableThemeSwitcher }}
-        {{ $anatoleThemeSwitcher := resources.Get "js/anatole-theme-switcher.js" }}
-        {{ $secureThemeSwitcherJS := $anatoleThemeSwitcher |  resources.Minify | resources.Fingerprint }}
-        <script type="text/javascript"
-                src="{{ $secureThemeSwitcherJS.Permalink }}"
-                integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
-                crossorigin="anonymous"></script>
+    {{ $anatoleThemeSwitcher := resources.Get "js/anatole-theme-switcher.js" }}
+    {{ $secureThemeSwitcherJS := $anatoleThemeSwitcher |  resources.Minify | resources.Fingerprint }}
+    <script type="text/javascript"
+    src="{{ $secureThemeSwitcherJS.Permalink }}"
+    integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
+    crossorigin="anonymous"></script>
     {{ end }}
 
     {{- $js := "" -}}
     {{- range .Site.Params.customJs -}}
-        {{- if or (in . "http://") (in . "https://") -}}
-            <script src="{{ . | relURL }}"></script>
-        {{- else -}}
-            {{- $customJS := resources.Get . -}}
-            {{- if $customJS -}}
-                {{- if eq $js "" -}}
-                    {{- $js = $customJS -}}
-                {{- else -}}
-                    {{- $js = slice $js $customJS | resources.Concat "js/custom.js" -}}
-                {{- end -}}
-            {{- end -}}
-        {{- end -}}
+    {{- if or (in . "http://") (in . "https://") -}}
+    <script src="{{ . | relURL }}"></script>
+    {{- else -}}
+    {{- $customJS := resources.Get . -}}
+    {{- if $customJS -}}
+    {{- if eq $js "" -}}
+    {{- $js = $customJS -}}
+    {{- else -}}
+    {{- $js = slice $js $customJS | resources.Concat "js/custom.js" -}}
+    {{- end -}}
+    {{- end -}}
+    {{- end -}}
     {{- end -}}
 
     {{- if ne $js "" -}}
     {{- $secureJS := $js |  resources.Minify | resources.Fingerprint -}}
     <script type="text/javascript"
-            src="{{ $secureJS.Permalink }}"
-            integrity="{{ $secureJS.Data.Integrity }}"
-            crossorigin="anonymous"></script>
+    src="{{ $secureJS.Permalink }}"
+    integrity="{{ $secureJS.Data.Integrity }}"
+    crossorigin="anonymous"></script>
     {{- end -}}
     <script data-ad-client="ca-pub-2012704307728821" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Twitter Cards -->
