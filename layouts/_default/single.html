@@ -33,6 +33,9 @@
                 {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags.html" . }}{{ end }}
             </div>
         </div>
+        {{ if .Params.nutrition }}
+            <img width="320" height="633.583" src="{{.Params.nutrition}}" />
+        {{ end }}
 
         {{ if eq .Type "recipe"}}
             {{- if .Site.DisqusShortname -}}
