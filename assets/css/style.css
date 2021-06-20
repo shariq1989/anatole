@@ -41,8 +41,8 @@ html {
 
 body {
     color: var(--body-color);
-    font-family: 'Helvetica', sans-serif;
-    font-size: 15px;
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 17px;
     width: 100%;
     margin: 0 auto 30px auto;
     background-color: var(--bg-color);
@@ -197,7 +197,7 @@ a:active {
     list-style: none;
     padding: 11px 30px;
     float: left;
-    font-size: 12px;
+    font-size: 15px;
     display: block;
     width: calc(100% - 30px);
 }
@@ -218,7 +218,7 @@ a:active {
 
 .page-top .nav a.current {
     color: var(--nav-text-color);
-    padding-bottom: 22px;
+    padding-bottom: 16px;
     border-bottom: 1px solid var(--nav-text-color);
 }
 
@@ -278,7 +278,7 @@ a:active {
 }
 
 .sidebar .logo-title .description {
-    font-size: 14px;
+    font-size: 15.5px;
     padding: 0px 50px 0px 50px;
 }
 
@@ -664,7 +664,7 @@ a:active {
 }
 
 .list-with-title {
-    font-size: 14px;
+    font-size: 16px;
     margin: 30px;
     padding: 0;
 }
